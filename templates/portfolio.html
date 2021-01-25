@@ -1,0 +1,43 @@
+{% include 'header.html' %}
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/album.css') }}" rel="stylesheet">
+  </head>
+  <body class="d-flex flex-column h-100">
+
+  {% include 'navbar.html' %}
+
+<main role="main" class="flex-shrink-0">
+
+  <section class="jumbotron text-center bg-pic">
+    <div class="container">
+      <h1>Here's some stuff I've done.</h1>
+      <p class="lead text-muted">If you want to check some of my past projects, knock yourself out.</p>
+      <p>
+        <a href="#" class="btn btn-dark my-2">Go to my GitHub</a>
+        <a href="#" class="btn btn-outline-dark my-2">Get in touch</a>
+      </p>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Text-to-Morse Encoder</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Python</h6>
+                  <p class="card-text">Console-based text program designed to take a user's text input and turn it into Morse code.</p>
+                  <a href="#" class="card-link">GitHub repo</a>
+                  <!-- <a href="#" class="card-link">Another link</a> -->
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+{% include 'footer.html' %}

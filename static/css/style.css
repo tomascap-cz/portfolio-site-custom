@@ -1,0 +1,14 @@
+body {
+    background: url("../images/bg_index.jpg");
+    background-size: cover;
+    color: black;
+}
+
+.cover-heading {
+    color: black;
+}
+
+.space-below {
+    margin-bottom: 3rem;
+}
+

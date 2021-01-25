@@ -1,0 +1,35 @@
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% include "header.html" %}
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/signin.css')}}" rel="stylesheet">
+  </head>
+  <body class="text-center">
+    
+<main class="form-signin">
+<!--  <form>-->
+    <h1 class="h3 mb-3 fw-normal">Confirm your identity.</h1>
+<!--    <label for="inputEmail" class="visually-hidden" hidden>Name</label>-->
+<!--    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>-->
+<!--    <label for="inputPassword" class="visually-hidden" hidden>Password</label>-->
+<!--    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>-->
+<!--    <div class="checkbox mb-3">-->
+<!--      <label>-->
+<!--        <input type="checkbox" value="remember-me"> Remember me-->
+<!--      </label>-->
+<!--    </div>-->
+<!--    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>-->
+<!--  </form>-->
+
+  <form action="{{ url_for('login') }}" method="POST">
+      {{ form.csrf_token }}
+      {{ form.name(class_="form-control", placeholder="Name") }}
+      {{ form.password(class_="form-control", placeholder="Password") }}
+      {{ form.submit(class_="btn btn-dark btn-lg w-100", value="Log In") }}
+  </form>
+
+</main>
+
+
+{% include "footer.html" %}

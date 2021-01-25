@@ -1,0 +1,19 @@
+    <nav class="navbar navbar-expand-md navbar-dark {{'mb-auto' if request.path == '/'}} bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample04">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ url_for('get_home') }}">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('get_portfolio') }}">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('contact_form') }}">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
