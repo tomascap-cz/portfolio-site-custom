@@ -18,32 +18,9 @@ app.config['RECAPTCHA_PUBLIC_KEY'] = os.environ.get('RECAPTCHA_PUBLIC_KEY')
 app.config['RECAPTCHA_PRIVATE_KEY'] = os.environ.get('RECAPTCHA_PRIVATE_KEY')
 csrf = CSRFProtect(app)
 bootstrap = Bootstrap(app)
-app.config['MONGODB_SETTINGS'] = {
-    'db': os.environ.get('DB_NAME'),
-    'host': os.environ.get('MONGO_SRV')
-}
-db = MongoEngine()
-db.init_app(app)
-login_manager = LoginManager()
-login_manager.init_app(app)
 
-
-class User(UserMixin, db.Document):
-    meta = {'collection': 'users'}
-    name = db.StringField(required=True)
-    password = db.StringField(required=True)
-
-
-# @login_manager.user_loader
-# def load_user(user_id):
-#     return User.objects(pk=user_id).first()
-
-
-class Project(db.Document):
-    title = db.StringField(required=True)
-    subtitle = db.StringField(required=True)
-    description = db.StringField(required=True)
-    github_link = db.URLField(required=True)
+# login_manager = LoginManager()
+# login_manager.init_app(app)
 
 
 class ContactForm(FlaskForm):
@@ -54,10 +31,10 @@ class ContactForm(FlaskForm):
     submit = SubmitField('Send')
 
 
-class LoginForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired(), Email()])
-    submit = SubmitField('Log in')
+# class LoginForm(FlaskForm):
+#     name = StringField('Name', validators=[DataRequired()])
+#     password = PasswordField('Password', validators=[DataRequired(), Email()])
+#     submit = SubmitField('Log in')
 
 
 @app.route("/")
@@ -72,7 +49,7 @@ def get_portfolio():
 
 @app.route("/contact", methods=["GET", "POST"])
 def contact_form():
-    form = LoginForm()
+    form = ContactForm()
     if form.validate_on_submit():
         with SMTP(os.environ.get('MAIL_SERVER')) as connection:
             connection.starttls()
@@ -88,19 +65,19 @@ def contact_form():
     return render_template("contact.html", form=form)
 
 
-@app.route("/login", methods=["GET", "POST"])
-def login():
-    # if current_user.is_authenticated == True:
-    #     return redirect(url_for('/'))
-    form = LoginForm()
-    if request.method == "POST":
-        name = form.name.data
-        user = User.objects(name=name).first()
-        if user:
-            print("User found.")
-            if check_password_hash(user.password, form.password.data):
-                print("Passwords match.")
-    return render_template("login.html", form=form)
+# @app.route("/login", methods=["GET", "POST"])
+# def login():
+#     # if current_user.is_authenticated == True:
+#     #     return redirect(url_for('/'))
+#     form = LoginForm()
+#     if request.method == "POST":
+#         name = form.name.data
+#         user = User.objects(name=name).first()
+#         if user:
+#             print("User found.")
+#             if check_password_hash(user.password, form.password.data):
+#                 print("Passwords match.")
+#     return render_template("login.html", form=form)
 
 
 if __name__ == "__main__":

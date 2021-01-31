@@ -1,35 +1,35 @@
-{% import "bootstrap/wtf.html" as wtf %}
+<!--{% import "bootstrap/wtf.html" as wtf %}-->
 
-{% include "header.html" %}
+<!--{% include "header.html" %}-->
 
-    <!-- Custom styles for this template -->
-    <link href="{{ url_for('static', filename='css/signin.css')}}" rel="stylesheet">
-  </head>
-  <body class="text-center">
-    
-<main class="form-signin">
-<!--  <form>-->
-    <h1 class="h3 mb-3 fw-normal">Confirm your identity.</h1>
-<!--    <label for="inputEmail" class="visually-hidden" hidden>Name</label>-->
-<!--    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>-->
-<!--    <label for="inputPassword" class="visually-hidden" hidden>Password</label>-->
-<!--    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>-->
-<!--    <div class="checkbox mb-3">-->
-<!--      <label>-->
-<!--        <input type="checkbox" value="remember-me"> Remember me-->
-<!--      </label>-->
-<!--    </div>-->
-<!--    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>-->
+<!--    &lt;!&ndash; Custom styles for this template &ndash;&gt;-->
+<!--    <link href="{{ url_for('static', filename='css/signin.css')}}" rel="stylesheet">-->
+<!--  </head>-->
+<!--  <body class="text-center">-->
+<!--    -->
+<!--<main class="form-signin">-->
+<!--&lt;!&ndash;  <form>&ndash;&gt;-->
+<!--    <h1 class="h3 mb-3 fw-normal">Confirm your identity.</h1>-->
+<!--&lt;!&ndash;    <label for="inputEmail" class="visually-hidden" hidden>Name</label>&ndash;&gt;-->
+<!--&lt;!&ndash;    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>&ndash;&gt;-->
+<!--&lt;!&ndash;    <label for="inputPassword" class="visually-hidden" hidden>Password</label>&ndash;&gt;-->
+<!--&lt;!&ndash;    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="checkbox mb-3">&ndash;&gt;-->
+<!--&lt;!&ndash;      <label>&ndash;&gt;-->
+<!--&lt;!&ndash;        <input type="checkbox" value="remember-me"> Remember me&ndash;&gt;-->
+<!--&lt;!&ndash;      </label>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>&ndash;&gt;-->
+<!--&lt;!&ndash;  </form>&ndash;&gt;-->
+
+<!--  <form action="{{ url_for('login') }}" method="POST">-->
+<!--      {{ form.csrf_token }}-->
+<!--      {{ form.name(class_="form-control", placeholder="Name") }}-->
+<!--      {{ form.password(class_="form-control", placeholder="Password") }}-->
+<!--      {{ form.submit(class_="btn btn-dark btn-lg w-100", value="Log In") }}-->
 <!--  </form>-->
 
-  <form action="{{ url_for('login') }}" method="POST">
-      {{ form.csrf_token }}
-      {{ form.name(class_="form-control", placeholder="Name") }}
-      {{ form.password(class_="form-control", placeholder="Password") }}
-      {{ form.submit(class_="btn btn-dark btn-lg w-100", value="Log In") }}
-  </form>
-
-</main>
+<!--</main>-->
 
 
-{% include "footer.html" %}
+<!--{% include "footer.html" %}-->
